@@ -6,7 +6,7 @@ import createStyles from '@material-ui/core/styles/createStyles';
 import Button from '@material-ui/core/Button';
 import axios from "axios"
 import {v4 as uuidv4} from 'uuid';
-import { API_URL } from '../config'
+import { HOST_URL, API_POST, API_GET } from '../config'
 
 const useUploadButtonStyles = makeStyles((theme) =>
   createStyles({
@@ -50,8 +50,10 @@ export default class Buttons_upsub extends React.Component {
     super(props);
     this.state = {
       hasfile: false,
+      hasfile2: false,
       myid: null,
-      file: null
+      file: null,
+      file_result: null
     };
   }
 
@@ -65,27 +67,51 @@ export default class Buttons_upsub extends React.Component {
 
   async handleUpload(e) {
     
-    const API = "keypoint/image-raw";
-    const HOST = API_URL;
-    const url = `${HOST}/${API}`;
+    const url = `${HOST_URL}/${API_POST}/`;
     var fd = new FormData();
     
     console.log(this.state.hasfile);
     console.log(this.state.myid);
     console.log(this.state.files);
-    const config = { headers: { 'Content-Type': 'multipart/form-data' }};
     
-    fd.append('fields', this.state.myid)
-    fd.append('image', this.state.files[0])
+    
+    // fd.append('fields', this.state.myid)
+    fd.append('file', this.state.files[0])
 
+    // var fileObject = document.getElementById('id')
+    // fd.append('file', this.state.files[0])
+
+    const config_post = { headers: 
+                      { 'Content-Type': 'multipart/form-data',
+                        'dataID': this.state.myid}
+    };
+    const config_get = { headers: 
+                      {'dataID': this.state.myid, 
+                       'Content-Type' : 'image/jpeg'}
+    };
+    // const config =  {headers: fd.getHeaders()}
+    // const config = { headers: { ...fd.getHeaders() }};
+
+    console.log('url:', url)
+    axios.post(url, fd, config_post).then(res_post => {
     
-    const response = axios.post(url, fd, config)
-    console.log(response)
+      console.log(res_post.status)
+      axios.get(url, config_get).then(res_get => {
+        console.log(res_get.status)
+        this.setState({ hasfile2: true})
+      }).catch(e => {
+        console.log(e)
+      })
+
+    }).catch(e => {
+      console.log(e)
+    })
   }
   
   render() {
 
     let hasfile = this.state.hasfile
+    let hasfile2 = this.state.hasfile2
 
     return (
       <div>
@@ -108,6 +134,10 @@ export default class Buttons_upsub extends React.Component {
         {hasfile && 
            <img src={URL.createObjectURL(this.state.files[0])} alt='Thumb' /> }
         
+        {hasfile2 && 
+           
+           <img src={`${HOST_URL}/${API_POST}/`} alt='Thumb2' /> 
+        }
       </div>
     );
   }
