@@ -20,11 +20,13 @@ export default function AlertDialog(props) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Choose a pitcure that you'd like to process"}
+          {/* Choose a photo that includes a human body. */}
+          {props.textTitle}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            You can choose a piture from  "image" button on your left-side. push submit-button after choose.
+            {/* Image-Button to choose picture is on your left-side. This module is going to estimate human posture after your submitting */}
+            {props.textContent}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

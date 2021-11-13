@@ -66,6 +66,7 @@ const ImageHandler = (props) => {
   return (
     <div>
       <div>
+      <h2>Posture of Human-Body Estimator</h2>
         <ButtonImport
           className="image"
           name="image"
@@ -82,7 +83,11 @@ const ImageHandler = (props) => {
           submit
         </ButtonPost>
 
-        <AlertDialog open={openAlert} handleClose={handleClose}></AlertDialog>
+        <AlertDialog open={openAlert} 
+                     handleClose={handleClose}
+                     textTitle='Choose a photo that includes a human body .'
+                     textContent='Image-Button to choose picture is on your left-side. This module is going to estimate human posture after your submitting'>
+        </AlertDialog>
         
       </div>
 
