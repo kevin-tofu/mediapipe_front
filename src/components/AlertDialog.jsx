@@ -20,11 +20,11 @@ export default function AlertDialog(props) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Did you choice a pitcure that you'd like to process?"}
+          {"Choose a pitcure that you'd like to process"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Choose piture from left "image" button, and push submit to process.
+            You can choose a piture from  "image" button on your left-side. push submit-button after choose.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

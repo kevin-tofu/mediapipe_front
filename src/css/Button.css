@@ -1,8 +1,0 @@
-.imagescls {
-    /* ... */
-    /* 親のdivと同じ幅高さまでしか広がらないようにする */
-    max-width: 50vw;
-    max-height: 50vh;
-    margin-left: auto;
-    margin-right: auto;
-}

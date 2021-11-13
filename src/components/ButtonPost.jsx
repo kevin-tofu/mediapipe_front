@@ -7,7 +7,6 @@ const ButtonPost = (props) => {
     <Button variant="contained" component="span" {...props} onClick={props.onClick}>
       {props.children}
     </Button>
-    // <button onClick={e => this.postImage(e)}>Upload</button>
   );
 };
 export default ButtonPost;

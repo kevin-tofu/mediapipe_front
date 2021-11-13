@@ -8,16 +8,18 @@ import CircularProgress from '@mui/material/CircularProgress';
 export default function DelayingAppearance (props) {
 
   return (
-    <Box sx={{ display: 'flex', height: 40, alignItems: 'center'}}>
-        <Fade
-            in={props.loading}
-            style={{
-            transitionDelay: props.loading ? '800ms' : '0ms',
-            }}
-            unmountOnExit
-        >
-            <CircularProgress />
-        </Fade>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <Box sx={{ height: 40 }}>
+            <Fade
+                in={props.loading}
+                style={{
+                transitionDelay: props.loading ? '800ms' : '0ms',
+                }}
+                unmountOnExit
+            >
+                <CircularProgress style={{alignItems: 'center'}} />
+            </Fade>
+        </Box>
     </Box>
   );
 }
