@@ -1,0 +1,3 @@
+[submodule "src/components/imagehandler"]
+	path = src/components/imagehandler
+	url = git@github.com:kevin-tofu/imageHandlerReact.git

@@ -2,13 +2,14 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 console.log(process.env)
-// exports.HOST_URL = process.env.API_URL || "http://localhost:1112"
-// exports.API_POST = process.env.API || "keypoint/image-raw"
+// exports.URL_HOST = process.env.URL_HOST || "http://localhost:1110"
+// exports.URL_HOST = process.env.URL_HOST || "http://mymediapipeserver"
+exports.URL_HOST = process.env.URL_HOST || "https://mykeypointserver.kevin-asobi.com"
+// exports.URL_HOST =  "https://mykeypointserver.kevin-asobi.com"
 
-// exports.HOST_URL = process.env.API_URL || "http://localhost:1110"
-// exports.HOST_URL = process.env.API_URL || "http://mymediapipeserver"
-exports.HOST_URL = process.env.API_URL || "https://mykeypointserver.kevin-asobi.com"
+exports.API_POST = process.env.API || "image"
+exports.API_GET = process.env.API || "image"
 
-// exports.API_POST = process.env.API || "image2skeleton"
-exports.API_POST = process.env.API || "skeleton_image"
-exports.API_GET = process.env.API || "skeleton_image"
+exports.TITLE = 'Keypoint-Detector'
+exports.DIALOG_TITLE = 'Choose a photo that includes a human body'
+exports.DIALOG_TEXTCONTENT = 'Image-Button to choose picture is on your left-side. This module is going to estimate human posture after your submitting'
