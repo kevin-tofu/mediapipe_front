@@ -2,9 +2,9 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 console.log(process.env)
-// exports.URL_HOST = process.env.URL_HOST || "http://localhost:1110"
+exports.URL_HOST = process.env.URL_HOST || "http://localhost:5555"
 // exports.URL_HOST = process.env.URL_HOST || "http://mymediapipeserver"
-exports.URL_HOST = process.env.URL_HOST || "https://mykeypointserver.kevin-asobi.com"
+// exports.URL_HOST = process.env.URL_HOST || "https://mykeypointserver.kevin-asobi.com"
 // exports.URL_HOST =  "https://mykeypointserver.kevin-asobi.com"
 
 exports.API_POST = process.env.API || "image"
